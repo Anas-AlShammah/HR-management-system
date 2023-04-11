@@ -5,23 +5,23 @@ function Employee(employee,fullName,Department,level) {
     this.Department=Department;
     this.level=level;
     this.imgUrl='imgUrl';
-    this.salary=this.calculateSalary(level) ;
+    this.salary=this.calculateSalary() ;
     this.rander=this.rander();
     
 }
 
-Employee.prototype.calculateSalary =function(level){
+Employee.prototype.calculateSalary =function(){
     let salay;
     let randomS=Math.floor(Math.random()*500);
-if (level=="Senior")
+if (this.level=="Senior")
  {
     salay=randomS+1500;
  }
-else if (level=="Mid-Senior") 
+else if (this.level=="Mid-Senior") 
 {
     salay=randomS+1000;
 }
-else if (level=="Junior")
+else if (this.level=="Junior")
  {
     salay=randomS+500;
  }
