@@ -1,66 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TalentMagnet</title>
-    <style>
-        body {margin:0;
-           
-        }
-        
-        ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          background-color: #333;
-          position: fixed;
-          top: 0;
-          width: 100%;
-        }
-        
-        li {
-          float: left;
-        }
-        
-        li a {
-          display: block;
-          color: white;
-          text-align: center;
-          padding: 14px 16px;
-          text-decoration: none;
-        }
-        
-        li a:hover:not(.active) {
-          background-color: #111;
-        }
-        
-        .active {
-          background-color: #04AA6D;
-        }
-        footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: rgb(19, 18, 18);
-   color: white;
-   text-align: center;
-}
-main{
-color: white;
-background-image: url("logo.webp");
-            background-color: #0a0909;
-height: 30%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:contain; 
-}
-        </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TalentMagnet</title>
+  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+    
+  
     <header>
         <section>
             
@@ -72,19 +21,42 @@ height: 30%;
                 </ul>
             </nav>
         </section>
-    </header>
-    
-    <div style="padding:20px;margin-top:30px;height:100vh; background-color: #080707;">
-    <main>
-      <div style="float:right;padding-right: 50%;text-align: center;color: rgb(24, 167, 119);font-size: x-large;"><h1>TalentMagnet</h1><h1>HR-management-system</h1></div>
-        <script src="./app.js"></script>
-    </main>
+   
+      <h1>TalentMagnet</h1>
+      <p>HR management system</p>
+      <form id="registrar">
+            <label for="name">Full Name</label>
+            <input type="text" name="name" placeholder="Full Name">
 
-    <footer>
-        <p>© 2023 TalentMagnet</p>
-    </footer>
+            <label for="departmentSelect">Department : </label>
+          <select name="department" id="departmentSelect">
+            <option value="">--Please choose an option--</option>
+            <option value="Administration">Administration</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Development">Development</option>
+            <option value="Finance">Finance</option>
+          </select> 
+
+          <label for="level">Level :</label>
+          <select id="level" name="level">
+            <option value="">--Please choose an option--</option>
+            <option value="Junior">Junior</option>
+            <option value="Mid-Senior">Mid-Senior</option>
+            <option value="Senior">Senior</option>
+          </select>
+
+          <input type="text" name="imgUrl" placeholder="img Url" id="imgUrl">
+
+        <button type="submit" name="submit" value="submit">Submit</button>
+      </form>
+    </header>
+    <div class="wrapper">
     
-    
-    </div>
+        <section class="articles" id="section"></section>
+   
+  </div>
+  
+  <script type="text/javascript" src="./js/app.js"></script>
 </body>
+
 </html>
