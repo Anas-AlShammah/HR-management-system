@@ -1,5 +1,5 @@
 "use strict";
-let countid=0;
+let countid=1000;
 let arr=[];
 
 function Employee(fullName,Department,level,imgUrl) {
