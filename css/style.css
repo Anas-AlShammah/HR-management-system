@@ -53,18 +53,19 @@ body {
   
   h1 {
     font-family: 'Courgette', cursive;
-    font-size: 48px;
+    font-size: 10px;
     margin: 0;
     line-height: 1.2;
     text-align: center;
-    margin-top: 50px;
+    
   }
   
   p {
-    font-size: 24px;
+    font-size: 17px;
+   
     font-weight: 700;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
   
   form {
@@ -101,7 +102,7 @@ body {
       font-size: 36px;
     }
     p {
-      font-size: 20px;
+      font-size: 15px;
     }
     form input,
     form select {
@@ -138,9 +139,9 @@ body {
   
   /* basic article elements styling */
   article h2 {
-    margin: 0 0 18px 0;
+    
     font-family: "Bebas Neue", cursive;
-    font-size: 1.9rem;
+    font-size: 1.3rem;
     letter-spacing: 0.06em;
     color: var(--title-color);
     transition: color 0.3s ease-out;
@@ -218,6 +219,7 @@ body {
   }
   p{
     text-align: center;
+   
   }
   .articles {
     display: grid;
@@ -268,4 +270,6 @@ body {
     white-space: nowrap; 
     width: 1px;
   }  
- 
+ .salary{
+  font-size: larger;
+ }

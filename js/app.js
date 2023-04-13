@@ -1,22 +1,41 @@
 "use strict";
-let countid=1000;
+
 let arr=[];
 
 function Employee(fullName,Department,level,imgUrl) {
+  this.id=this.idGen();
      this.fullName=fullName;
     this.Department=Department;
     this.level=level;
     this.imgUrl=imgUrl;
     this.salary=this.calculateSalary() ;
     this.rander=this.rander();
-    this.id=this.idGen();
+    
     arr.push(this);
     
 }
 Employee.prototype.idGen=function() {
+  const generatedIds = new Set();
+
  
-  countid++;
-  return countid;
+    let uniqueId;
+    
+    do {
+      // Generate a random number between 0 and 1
+      const randomNumber = Math.random();
+  
+      // Multiply the random number by 10000 to get a four-digit number
+      uniqueId = Math.floor(randomNumber * 9000+1000);
+  
+      // Convert the unique ID to a string
+      uniqueId = uniqueId.toString().padStart(4, '0'); // Ensure it has four digits
+  
+    } while (generatedIds.has(uniqueId));
+  
+    generatedIds.add(uniqueId);
+    console.log(uniqueId);
+    return uniqueId;
+
 }
 Employee.prototype.calculateSalary =function(){
     let salay;
@@ -34,7 +53,7 @@ else if (this.level=="Junior")
     salay=randomS+500;
  }
  let netSalary=salay-salay*7.5/100;
- return netSalary;
+ return Math.floor(netSalary);
 };
 const ul = document.getElementById('listData');
 const section=document.getElementById('section')
@@ -48,20 +67,20 @@ Employee.prototype.rander =function () {
   const figure =document.createElement('figure');
   div.appendChild(figure);
   const img= document.createElement('img');
-  img.src=`./assets/${Math.floor(Math.random()*7+1)}.jpg`;
+  img.src=this.imgUrl || `./assets/${Math.floor(Math.random()*7+1)}.jpg`;
   figure.appendChild(img);
   const div1 =document.createElement('div');
   div1.className='article-body';
   div.appendChild(div1);
   const h2 =document.createElement('h2');
-  h2.textContent=`Name: ${this.fullName} -ID: ${countid+1}`;
+  h2.textContent=`Name: ${this.fullName} -ID: ${this.id}`;
   div1.appendChild(h2);
   const p =document.createElement('p');
   p.textContent=`Department: ${this.Department} - ${this.level}`;
   div1.appendChild(p);
-  const p1 =document.createElement('p1');
+  const p1 =document.createElement('p');
   p1.textContent=`${this.salary}`;
-  p1.style.textAlign='center';
+  p1.className='salary';
   div1.appendChild(p1);
 }
 /*
