@@ -2,7 +2,7 @@
 let count=1;
 let arr=[];
 document.addEventListener('DOMContentLoaded', () => {
-  if (loadData()) {
+  if (loadData() ) {
     arr = loadData();
     render(arr);  
   }
@@ -14,17 +14,12 @@ function Employee(fullName,Department,level,imgUrl) {
     this.level=level;
     this.imgUrl=imgUrl;
     this.salary=this.calculateSalary() ;
-    
-    
     arr.push(this);
     
 }
 Employee.prototype.idGen=function() {
   const generatedIds = new Set();
-
- 
     let uniqueId;
-    
     do {
       // Generate a random number between 0 and 1
       const randomNumber = Math.random();
@@ -40,7 +35,6 @@ Employee.prototype.idGen=function() {
     generatedIds.add(uniqueId);
     console.log(uniqueId);
     return uniqueId;
-
 }
 Employee.prototype.calculateSalary =function(){
     let salay;
@@ -64,7 +58,7 @@ const ul = document.getElementById('listData');
 const section=document.getElementById('section')
 section.className='articles';
 function render (array) {
- 
+  section.innerHTML='';
   array.forEach ((emp)=>{
   const article =document.createElement('article');
   section.appendChild(article);
