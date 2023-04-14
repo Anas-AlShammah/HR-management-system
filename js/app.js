@@ -1,7 +1,12 @@
 "use strict";
-
+let count=1;
 let arr=[];
-
+document.addEventListener('DOMContentLoaded', () => {
+  if (loadData()) {
+    arr = loadData();
+    render(arr);  
+  }
+});
 function Employee(fullName,Department,level,imgUrl) {
   this.id=this.idGen();
      this.fullName=fullName;
@@ -9,7 +14,7 @@ function Employee(fullName,Department,level,imgUrl) {
     this.level=level;
     this.imgUrl=imgUrl;
     this.salary=this.calculateSalary() ;
-    this.rander=this.rander();
+    
     
     arr.push(this);
     
@@ -58,7 +63,9 @@ else if (this.level=="Junior")
 const ul = document.getElementById('listData');
 const section=document.getElementById('section')
 section.className='articles';
-Employee.prototype.rander =function () {
+function render (array) {
+ 
+  array.forEach ((emp)=>{
   const article =document.createElement('article');
   section.appendChild(article);
   const div =document.createElement('div');
@@ -67,21 +74,22 @@ Employee.prototype.rander =function () {
   const figure =document.createElement('figure');
   div.appendChild(figure);
   const img= document.createElement('img');
-  img.src=this.imgUrl || `./assets/${Math.floor(Math.random()*7+1)}.jpg`;
+  img.src=emp.imgUrl || `./assets/${Math.floor(Math.random()*7+1)}.jpg`;
   figure.appendChild(img);
   const div1 =document.createElement('div');
   div1.className='article-body';
   div.appendChild(div1);
   const h2 =document.createElement('h2');
-  h2.textContent=`Name: ${this.fullName} -ID: ${this.id}`;
+  h2.textContent=`Name: ${emp.fullName} -ID: ${emp.id}`;
   div1.appendChild(h2);
   const p =document.createElement('p');
-  p.textContent=`Department: ${this.Department} - ${this.level}`;
+  p.textContent=`Department: ${emp.Department} - ${emp.level}`;
   div1.appendChild(p);
   const p1 =document.createElement('p');
-  p1.textContent=`${this.salary}`;
+  p1.textContent=`${emp.salary}`;
   p1.className='salary';
   div1.appendChild(p1);
+    })
 }
 /*
 let employee1 = new Employee(1000,'Ghazi Samer',"Administration","Senior")
@@ -103,17 +111,24 @@ for (let key in Employee) {
   
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(e.target.name.value);
-    console.log(e.target.department.value);
-    console.log(e.target.level.value);
-    console.log(e.target.imgUrl.value);
+ 
      let name=e.target.name.value;
      let department=e.target.department.value;
      let level=e.target.level.value;
      let url=e.target.imgUrl.value;
     let employee = new Employee(name,department,level,url)
-    
+    savaData(arr);
+    render(arr);
   });
+  function savaData (arrayEmployee){
+    window.localStorage.setItem('employee',JSON.stringify(arrayEmployee));
+  }
+  function loadData (){
+    let data=window.localStorage.getItem('employee');
+    if (data){
+      return JSON.parse(data);
+    }
+  }
   /*
 const ul = document.getElementById('listData');
     const li = document.createElement('li');

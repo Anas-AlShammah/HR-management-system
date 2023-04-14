@@ -4,9 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/accounting.css" rel="stylesheet">
     <title>Document</title>
+   
 </head>
 <body>
-    
+   
+      
+
+
+   
+    <table>
+        <thead>
+        <tr>
+            <th>Department</th>
+            <th># of employees</th>
+            <th>Total Salary</th>
+            <th>Average</th>
+        </tr>
+         </thead>
+         <tbody>
+        <tr class="Administration">
+           <td>Administration</td>
+           <td class="nAdministration"></td> 
+           <td class="sAdministration"></td>
+           <td class="aAdministration"></td>
+        </tr>
+        <tr class="Marketing">
+            <td>Marketing</td>
+            <td class="nMarketing"></td> 
+            <td class="sMarketing"></td>
+            <td class="aMarketing"></td>
+        </tr>
+        <tr class="Development">
+            <td>Development</td> 
+            <td class="nDevelopment"></td> 
+            <td class="sDevelopment"></td>
+            <td class="aDevelopment"></td>
+        </tr>
+        <tr class="Finance">
+            <td>Finance</td>
+            <td class="nFinance"></td> 
+            <td class="sFinance"></td>
+            <td class="aFinance"></td>
+        </tr>
+        <tr class="Total">
+            <td>Total</td> 
+            <td class="nTotal"></td> 
+            <td class="sTotal"></td>
+            <td class="aTotal"></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Total number of employees: <span class="nTotal"></span></td>
+        </tr>
+        <tr>
+           
+            <td colspan="4">Average salary for all departments: <span class="sTotal"></span></td>
+        </tr>
+        <tr>
+            
+            <td colspan="4">Average salary for all departments: <span class="aTotal"></span></td>
+        </tr>
+    </tfoot>
+    </table>
+    <script src="./js/accounting.js"></script>
 </body>
 </html>
